@@ -1,0 +1,103 @@
+# Import TensorFlow 
+import tensorflow as tf
+import tensorflow_datasets as tfds
+import tensorflow_hub as hub
+
+# TODO: Make all other necessary imports.
+import warnings
+warnings.filterwarnings('ignore')
+#%matplotlib inline
+#%config InlineBackend.figure_format = 'retina'
+import os
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+#import tensorflow as tf
+#import tensorflow_datasets as tfds
+tfds.disable_progress_bar()
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+from tensorflow.keras.models import load_model
+
+import json
+import glob
+import logging
+from PIL import Image
+import argparse
+image_size = 224
+logger = tf.get_logger()
+logger.setLevel(logging.ERROR)
+
+parser = argparse.ArgumentParser(description='Use Image Classifier model to predict flower name')
+
+parser.add_argument('path_to_image_file', nargs='?', default="./test_images/hard-leaved_pocket_orchid.jpg")
+parser.add_argument('model', nargs='?', default="./my_model1", help="the trained model")
+parser.add_argument('--top_k', dest="top_k", default="4", help="top k predictions")
+parser.add_argument('--category_names', dest="category_names", default="label_map.json", help="mapping of categories ")
+
+args = parser.parse_args()
+
+
+
+# Label Mapping:load in a mapping from label to category name. You can find this in the file label_map.json
+# This will give you a dictionary mapping the integer coded labels to the actual names of the flowers
+with open('label_map.json', 'r') as f:
+    class_names = json.load(f)
+    
+#xxxx1
+
+# TODO: Load the Keras model
+reloaded_keras_model = tf.keras.models.load_model('./my_model_1.h5' , custom_objects={'KerasLayer': hub.KerasLayer})
+#reloaded_keras_model = tf.keras.models.load_model('./my_model_1.h5' , compile = False , custom_objects={'KerasLayer': hub.KerasLayer})
+#reloaded_keras_model = tensorflow.keras.models.load_model('./my_model_1.h5', custom_objects={'KerasLayer': hub.KerasLayer})
+#reloaded_keras_model = load_model('./my_model_1.h5', compile = False)
+xxxx2
+
+
+# TODO: Create the process_image function
+def process_image(image_array):
+    # Convert the image into a TensorFlow Tensor
+    image_tensor = tf.convert_to_tensor(image_array)
+    # Resize it to the appropriate size using tf.image.resize
+    image = tf.image.resize(image_tensor, (image_size, image_size))
+    #normalize the pixel values from integers in the range 0-255 to floats in the range 0-1 
+    image /= 255
+    #convert your image back to a NumPy array using the .numpy() method.
+    image = image.numpy()
+    return image
+
+# TODO: Create the predict function
+
+def predict(image_path, model, top_k):
+    #You can use the The Image.open() function to load the images. It returns an Image object.
+    img = Image.open(image_path)
+    
+    #You can convert this Image object to a NumPy array by using the np.asarray() function.
+    img_arr = np.asarray(img)
+    
+    #The image returned by the process_image function is a NumPy array with shape (224, 224, 3) 
+    #but the model expects the input images to be of shape (1, 224, 224, 3). This extra dimension 
+    #represents #the batch size. We suggest you use the np.expand_dims() function to add the extra dimension.
+
+    processed_img = process_image(img_arr)
+    processed_img_batch = np.expand_dims(processed_img, axis=0)
+
+    prediction = model.predict(processed_img_batch)
+
+    probs, classes = tf.math.top_k(prediction,top_k)
+    probs = probs.numpy().squeeze()
+    classes = classes.numpy().squeeze()
+    classes = [str(value) for value in classes]
+    return probs, classes
+
+#predict(args.image_path, args.model, args.top_k)
+
+test_image_path = './test_images/hard-leaved_pocket_orchid.jpg'
+test_top_k = 5
+predict(test_image_path, reloaded_keras_model, test_top_k)
+
+print('These are the likely flower names predicted for the supplied image {:,}'.format(classes))
+print('These are the probability of correctness that the above predictions are correct {:,}'.format(probs))
+
+if __name__== "__main__":
+    main()
