@@ -1,0 +1,28 @@
+(TF2.0) root@53c29d97596a:/home/workspace# python predict.py
+Traceback (most recent call last):
+  File "predict.py", line 50, in <module>
+    reloaded_keras_model = tf.keras.models.load_model('./my_model_1.h5' , custom_objects={'KerasLayer': hub.KerasLayer})
+  File "/opt/conda/envs/TF2.0/lib/python3.7/site-packages/tensorflow_core/python/keras/saving/save.py", line 149, in load_model
+    loader_impl.parse_saved_model(filepath)
+  File "/opt/conda/envs/TF2.0/lib/python3.7/site-packages/tensorflow_core/python/saved_model/loader_impl.py", line 83, in parse_saved_model
+    constants.SAVED_MODEL_FILENAME_PB))
+OSError: SavedModel file does not exist at: ./my_model_1.h5/{saved_model.pbtxt|saved_model.pb}
+(TF2.0) root@53c29d97596a:/home/workspace# python predict.py
+2020-10-28 18:51:37.358135: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-10-28 18:51:37.359224: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
+2020-10-28 18:51:37.360071: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (53c29d97596a): /proc/driver/nvidia/version does not exist
+2020-10-28 18:51:37.362088: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-10-28 18:51:37.408217: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2300000000 Hz
+2020-10-28 18:51:37.409485: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x564c8e144550 executing computations on platform Host. Devices:
+2020-10-28 18:51:37.410298: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Host, Default Version
+Traceback (most recent call last):
+  File "predict.py", line 50, in <module>
+    reloaded_keras_model = tf.keras.models.load_model('./my_model_1.h5' , custom_objects={'KerasLayer': hub.KerasLayer})
+  File "/opt/conda/envs/TF2.0/lib/python3.7/site-packages/tensorflow_core/python/keras/saving/save.py", line 146, in load_model
+    return hdf5_format.load_model_from_hdf5(filepath, custom_objects, compile)
+  File "/opt/conda/envs/TF2.0/lib/python3.7/site-packages/tensorflow_core/python/keras/saving/hdf5_format.py", line 184, in load_model_from_hdf5
+    training_config, custom_objects))
+  File "/opt/conda/envs/TF2.0/lib/python3.7/site-packages/tensorflow_core/python/keras/saving/saving_utils.py", line 235, in compile_args_from_training_config
+    sample_weight_mode = training_config['sample_weight_mode']
+KeyError: 'sample_weight_mode'
+(TF2.0) root@53c29d97596a:/home/workspace# 
