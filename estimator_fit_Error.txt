@@ -1,0 +1,208 @@
+estimator.fit({'training': input_data})
+
+'create_image_uri' will be deprecated in favor of 'ImageURIProvider' class in SageMaker Python SDK v2.
+'s3_input' class will be renamed to 'TrainingInput' in SageMaker Python SDK v2.
+'create_image_uri' will be deprecated in favor of 'ImageURIProvider' class in SageMaker Python SDK v2.
+2021-07-19 19:25:34 Starting - Starting the training job...
+2021-07-19 19:25:36 Starting - Launching requested ML instances......
+2021-07-19 19:26:59 Starting - Preparing the instances for training............
+2021-07-19 19:28:36 Downloading - Downloading input data...
+2021-07-19 19:29:21 Training - Downloading the training image...
+2021-07-19 19:29:46 Training - Training image download completed. Training in progress.bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+2021-07-19 19:29:47,860 sagemaker-containers INFO     Imported framework sagemaker_pytorch_container.training
+2021-07-19 19:29:47,890 sagemaker_pytorch_container.training INFO     Block until all host DNS lookups succeed.
+2021-07-19 19:29:50,930 sagemaker_pytorch_container.training INFO     Invoking user training script.
+2021-07-19 19:29:51,229 sagemaker-containers INFO     Module train does not provide a setup.py. 
+Generating setup.py
+2021-07-19 19:29:51,229 sagemaker-containers INFO     Generating setup.cfg
+2021-07-19 19:29:51,229 sagemaker-containers INFO     Generating MANIFEST.in
+2021-07-19 19:29:51,229 sagemaker-containers INFO     Installing module with the following command:
+/usr/bin/python -m pip install -U . -r requirements.txt
+Processing /opt/ml/code
+Collecting pandas (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/74/24/0cdbf8907e1e3bc5a8da03345c23cbed7044330bb8f73bb12e711a640a00/pandas-0.24.2-cp35-cp35m-manylinux1_x86_64.whl (10.0MB)
+Collecting numpy (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/b5/36/88723426b4ff576809fec7d73594fe17a35c27f8d01f93637637a29ae25b/numpy-1.18.5-cp35-cp35m-manylinux1_x86_64.whl (19.9MB)
+Collecting nltk (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/5e/37/9532ddd4b1bbb619333d5708aaad9bf1742f051a664c3c6fa6632a105fd8/nltk-3.6.2-py3-none-any.whl (1.5MB)
+Collecting beautifulsoup4 (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/d1/41/e6495bd7d3781cee623ce23ea6ac73282a373088fcd0ddc809a047b18eae/beautifulsoup4-4.9.3-py3-none-any.whl (115kB)
+Collecting html5lib (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/6c/dd/a834df6482147d48e225a49515aabc28974ad5a4ca3215c18a882565b028/html5lib-1.1-py2.py3-none-any.whl (112kB)
+Requirement already satisfied, skipping upgrade: python-dateutil>=2.5.0 in /usr/local/lib/python3.5/dist-packages (from pandas->-r requirements.txt (line 1)) (2.7.5)
+Collecting pytz>=2011k (from pandas->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/70/94/784178ca5dd892a98f113cdd923372024dc04b8d40abe77ca76b5fb90ca6/pytz-2021.1-py2.py3-none-any.whl (510kB)
+Requirement already satisfied, skipping upgrade: click in /usr/local/lib/python3.5/dist-packages (from nltk->-r requirements.txt (line 3)) (7.0)
+Collecting joblib (from nltk->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/28/5c/cf6a2b65a321c4a209efcdf64c2689efae2cb62661f8f6f4bb28547cf1bf/joblib-0.14.1-py2.py3-none-any.whl (294kB)
+Collecting tqdm (from nltk->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/7a/ec/f8ff3ccfc4e59ce619a66a0bf29dc3b49c2e8c07de29d572e191c006eaa2/tqdm-4.61.2-py2.py3-none-any.whl (76kB)
+Collecting regex (from nltk->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/c0/d1/ad6afa6000ab869f6af2c85985d40558ffb298d9fcb2ab04c0648436008f/regex-2021.7.6.tar.gz (693kB)
+Collecting soupsieve>1.2; python_version >= "3.0" (from beautifulsoup4->-r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/02/fb/1c65691a9aeb7bd6ac2aa505b84cb8b49ac29c976411c6ab3659425e045f/soupsieve-2.1-py3-none-any.whl
+Requirement already satisfied, skipping upgrade: six>=1.9 in /usr/local/lib/python3.5/dist-packages (from html5lib->-r requirements.txt (line 5)) (1.11.0)
+Collecting webencodings (from html5lib->-r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl
+Building wheels for collected packages: train, regex
+  Running setup.py bdist_wheel for train: started
+  Running setup.py bdist_wheel for train: finished with status 'done'
+  Stored in directory: /tmp/pip-ephem-wheel-cache-za6zwxi_/wheels/35/24/16/37574d11bf9bde50616c67372a334f94fa8356bc7164af8ca3
+  Running setup.py bdist_wheel for regex: started
+  Running setup.py bdist_wheel for regex: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/4d/21/94/ffc1c84ddb509f51dab71898a63df9fbff5f1e04552ee8ea8e
+Successfully built train regex
+Installing collected packages: numpy, pytz, pandas, joblib, tqdm, regex, nltk, soupsieve, beautifulsoup4, webencodings, html5lib, train
+  Found existing installation: numpy 1.15.4
+    Uninstalling numpy-1.15.4:
+      Successfully uninstalled numpy-1.15.4
+Successfully installed beautifulsoup4-4.9.3 html5lib-1.1 joblib-0.14.1 nltk-3.6.2 numpy-1.18.5 pandas-0.24.2 pytz-2021.1 regex-2021.7.6 soupsieve-2.1 tqdm-4.61.2 train-1.0.0 webencodings-0.5.1
+You are using pip version 18.1, however version 20.3.4 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+2021-07-19 19:30:18,486 sagemaker-containers INFO     Invoking user script
+
+Training Env:
+
+{
+    "channel_input_dirs": {
+        "training": "/opt/ml/input/data/training"
+    },
+    "input_dir": "/opt/ml/input",
+    "resource_config": {
+        "network_interface_name": "eth0",
+        "hosts": [
+            "algo-1"
+        ],
+        "current_host": "algo-1"
+    },
+    "module_name": "train",
+    "additional_framework_parameters": {},
+    "framework_module": "sagemaker_pytorch_container.training:main",
+    "current_host": "algo-1",
+    "input_data_config": {
+        "training": {
+            "TrainingInputMode": "File",
+            "RecordWrapperType": "None",
+            "S3DistributionType": "FullyReplicated"
+        }
+    },
+    "module_dir": "s3://sagemaker-us-east-2-580549777938/sagemaker-pytorch-2021-07-19-19-25-34-684/source/sourcedir.tar.gz",
+    "job_name": "sagemaker-pytorch-2021-07-19-19-25-34-684",
+    "input_config_dir": "/opt/ml/input/config",
+    "user_entry_point": "train.py",
+    "log_level": 20,
+    "network_interface_name": "eth0",
+    "model_dir": "/opt/ml/model",
+    "num_gpus": 1,
+    "output_dir": "/opt/ml/output",
+    "num_cpus": 4,
+    "output_data_dir": "/opt/ml/output/data",
+    "output_intermediate_dir": "/opt/ml/output/intermediate",
+    "hyperparameters": {
+        "hidden_dim": 200,
+        "epochs": 10
+    },
+    "hosts": [
+        "algo-1"
+    ]
+}
+
+Environment variables:
+
+SM_NETWORK_INTERFACE_NAME=eth0
+SM_FRAMEWORK_MODULE=sagemaker_pytorch_container.training:main
+SM_INPUT_CONFIG_DIR=/opt/ml/input/config
+SM_CHANNELS=["training"]
+SM_CHANNEL_TRAINING=/opt/ml/input/data/training
+SM_NUM_CPUS=4
+SM_CURRENT_HOST=algo-1
+SM_RESOURCE_CONFIG={"current_host":"algo-1","hosts":["algo-1"],"network_interface_name":"eth0"}
+SM_HOSTS=["algo-1"]
+SM_INPUT_DATA_CONFIG={"training":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"}}
+SM_OUTPUT_DIR=/opt/ml/output
+SM_TRAINING_ENV={"additional_framework_parameters":{},"channel_input_dirs":{"training":"/opt/ml/input/data/training"},"current_host":"algo-1","framework_module":"sagemaker_pytorch_container.training:main","hosts":["algo-1"],"hyperparameters":{"epochs":10,"hidden_dim":200},"input_config_dir":"/opt/ml/input/config","input_data_config":{"training":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"}},"input_dir":"/opt/ml/input","job_name":"sagemaker-pytorch-2021-07-19-19-25-34-684","log_level":20,"model_dir":"/opt/ml/model","module_dir":"s3://sagemaker-us-east-2-580549777938/sagemaker-pytorch-2021-07-19-19-25-34-684/source/sourcedir.tar.gz","module_name":"train","network_interface_name":"eth0","num_cpus":4,"num_gpus":1,"output_data_dir":"/opt/ml/output/data","output_dir":"/opt/ml/output","output_intermediate_dir":"/opt/ml/output/intermediate","resource_config":{"current_host":"algo-1","hosts":["algo-1"],"network_interface_name":"eth0"},"user_entry_point":"train.py"}
+SM_HPS={"epochs":10,"hidden_dim":200}
+SM_MODEL_DIR=/opt/ml/model
+SM_HP_EPOCHS=10
+SM_MODULE_NAME=train
+SM_OUTPUT_DATA_DIR=/opt/ml/output/data
+SM_INPUT_DIR=/opt/ml/input
+SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate
+SM_LOG_LEVEL=20
+SM_MODULE_DIR=s3://sagemaker-us-east-2-580549777938/sagemaker-pytorch-2021-07-19-19-25-34-684/source/sourcedir.tar.gz
+PYTHONPATH=/usr/local/bin:/usr/lib/python35.zip:/usr/lib/python3.5:/usr/lib/python3.5/plat-x86_64-linux-gnu:/usr/lib/python3.5/lib-dynload:/usr/local/lib/python3.5/dist-packages:/usr/lib/python3/dist-packages
+SM_USER_ARGS=["--epochs","10","--hidden_dim","200"]
+SM_HP_HIDDEN_DIM=200
+SM_FRAMEWORK_PARAMS={}
+SM_USER_ENTRY_POINT=train.py
+SM_NUM_GPUS=1
+
+Invoking script with the following command:
+
+/usr/bin/python -m train --epochs 10 --hidden_dim 200
+
+
+Using device cuda.
+Get train data loader.
+
+2021-07-19 19:30:35 Uploading - Uploading generated training model
+2021-07-19 19:30:35 Failed - Training job failed
+Model loaded with embedding_dim 32, hidden_dim 200, vocab_size 5000.
+2021-07-19 19:30:27,821 sagemaker-containers ERROR    ExecuteUserScriptError:
+Command "/usr/bin/python -m train --epochs 10 --hidden_dim 200"
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/runpy.py", line 184, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.5/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/ml/code/train.py", line 141, in <module>
+    train(model, train_loader, args.epochs, optimizer, loss_fn, device)
+  File "/opt/ml/code/train.py", line 74, in train
+    from train.model import LSTMClassifier
+ImportError: No module named 'train.model'; 'train' is not a package
+---------------------------------------------------------------------------
+UnexpectedStatusException                 Traceback (most recent call last)
+<ipython-input-35-0e8223086435> in <module>
+----> 1 estimator.fit({'training': input_data})
+
+~/anaconda3/envs/pytorch_p36/lib/python3.6/site-packages/sagemaker/estimator.py in fit(self, inputs, wait, logs, job_name, experiment_config)
+    497         self.jobs.append(self.latest_training_job)
+    498         if wait:
+--> 499             self.latest_training_job.wait(logs=logs)
+    500 
+    501     def _compilation_job_name(self):
+
+~/anaconda3/envs/pytorch_p36/lib/python3.6/site-packages/sagemaker/estimator.py in wait(self, logs)
+   1137         # If logs are requested, call logs_for_jobs.
+   1138         if logs != "None":
+-> 1139             self.sagemaker_session.logs_for_job(self.job_name, wait=True, log_type=logs)
+   1140         else:
+   1141             self.sagemaker_session.wait_for_job(self.job_name)
+
+~/anaconda3/envs/pytorch_p36/lib/python3.6/site-packages/sagemaker/session.py in logs_for_job(self, job_name, wait, poll, log_type)
+   3075 
+   3076         if wait:
+-> 3077             self._check_job_status(job_name, description, "TrainingJobStatus")
+   3078             if dot:
+   3079                 print()
+
+~/anaconda3/envs/pytorch_p36/lib/python3.6/site-packages/sagemaker/session.py in _check_job_status(self, job, desc, status_key_name)
+   2669                 ),
+   2670                 allowed_statuses=["Completed", "Stopped"],
+-> 2671                 actual_status=status,
+   2672             )
+   2673 
+
+UnexpectedStatusException: Error for Training job sagemaker-pytorch-2021-07-19-19-25-34-684: Failed. Reason: AlgorithmError: ExecuteUserScriptError:
+Command "/usr/bin/python -m train --epochs 10 --hidden_dim 200"
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/runpy.py", line 184, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.5/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/ml/code/train.py", line 141, in <module>
+    train(model, train_loader, args.epochs, optimizer, loss_fn, device)
+  File "/opt/ml/code/train.py", line 74, in train
+    from train.model import LSTMClassifier
+ImportError: No module named 'train.model'; 'train' is not a package
